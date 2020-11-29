@@ -31,4 +31,8 @@ export class MovieDBService {
   getMoviePopular() {
     return this.getQuery<RespTMDB>(`/movie/popular?api_key=${keyApi}&language=es-ES`)
   }
+
+  getMovieCategories() {
+    return this.getQuery<RespCategoria>(`/genre/movie/list?api_key=${keyApi}&language=es-ES`)
+  }
 }

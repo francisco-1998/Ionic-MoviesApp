@@ -13,11 +13,12 @@ export class Tab1Page implements OnInit{
   listaPeliculasRecientes: Pelicula[] =[];
   listaPeliculasUpcoming:Pelicula[] =[];
   listaPeliculasPopulares:Pelicula[] =[];
+  listaCategorias:Categoria[] =[];
 
 
-  nombreSeccion1 = "Now Playing"
-  nombreSeccion2 = "Coming Soon"
-  nombreSeccion3 = "Popular"
+  nombreSeccion1 = "En cines"
+  nombreSeccion2 = "Próximamente"
+  nombreSeccion3 = "Populares"
     
   constructor(private moviedbservice:MovieDBService) {}
 
@@ -35,6 +36,11 @@ export class Tab1Page implements OnInit{
     this.moviedbservice.getMoviePopular().subscribe(data=>{
       console.log(data.results);
       this.listaPeliculasPopulares = data.results;
+    })
+
+    this.moviedbservice.getMovieCategories().subscribe(data=>{
+      console.log(data.genres);
+      this.listaCategorias = data.genres;
     })
 
   }

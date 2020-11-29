@@ -6,6 +6,7 @@
 
 <ion-content [fullscreen]="true">
   <app-slide-show [peliculas]="listaPeliculasRecientes" [titulo]="nombreSeccion1"></app-slide-show>
+  <app-slide-categorias [categorias]="listaCategorias"></app-slide-categorias>
   <app-slide-poster [proximasMovies]="listaPeliculasUpcoming" [titulo]="nombreSeccion2"></app-slide-poster>
   <app-slide-poster-pares [peliculas]="listaPeliculasPopulares" [titulo]="nombreSeccion3"></app-slide-poster-pares>
 </ion-content>

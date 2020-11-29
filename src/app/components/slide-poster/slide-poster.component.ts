@@ -15,6 +15,7 @@ export class SlidePosterComponent implements OnInit {
     dynamicBullets: true,
     slidesPerView:2,
     loop: true,
+    autoplay: true
   }
   
   constructor() { }

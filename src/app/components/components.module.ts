@@ -5,6 +5,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { SlideShowComponent } from './slide-show/slide-show.component';
 import { SlidePosterComponent } from './slide-poster/slide-poster.component';
 import { SlidePosterParesComponent } from './slide-poster-pares/slide-poster-pares.component';
+import { SlideCategoriasComponent } from './slide-categorias/slide-categorias.component';
 
 
 
@@ -12,7 +13,8 @@ import { SlidePosterParesComponent } from './slide-poster-pares/slide-poster-par
   declarations: [
     SlideShowComponent,
     SlidePosterComponent,
-    SlidePosterParesComponent
+    SlidePosterParesComponent,
+    SlideCategoriasComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { SlidePosterParesComponent } from './slide-poster-pares/slide-poster-par
   exports: [
     SlideShowComponent,
     SlidePosterComponent,
-    SlidePosterParesComponent
+    SlidePosterParesComponent,
+    SlideCategoriasComponent
   ]
 })
 export class ComponentsModule { }
