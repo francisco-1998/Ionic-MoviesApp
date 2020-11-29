@@ -1,11 +1,8 @@
-<ion-header [translucent]="true" class="ion-no-border">
-  <ion-toolbar>
-    <ion-title>
-      Sisco's Movies
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-
+  <ion-slides [options]="slideOpts">
+    <ion-slide *ngFor="let pelicula of listaPeliculasRecientes">
+        <img [src]="pelicula.backdrop_path | imagen">
+    </ion-slide>
+  </ion-slides>
 </ion-content>
+

@@ -11,6 +11,13 @@ export class Tab1Page implements OnInit{
 
   listaPeliculasRecientes: Pelicula[] =[];
 
+  slideOpts={
+    dynamicBullets: true,
+    slidesPerView: 1,
+    autoplay: true,
+    loop: true,
+  }
+  
   constructor(private moviedbservice:MovieDBService) {}
 
   ngOnInit(): void {
@@ -19,6 +26,9 @@ export class Tab1Page implements OnInit{
       this.listaPeliculasRecientes = data.results;
     })
   }
+
+
+
 
 
 
