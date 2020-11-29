@@ -1,0 +1,15 @@
+<h1>Now Playing</h1>
+<ion-slides [options]="slideOpts">
+  <ion-slide *ngFor="let movie of peliculas">
+    <div class="movies-flex" *ngIf="peliculas">
+      <div class="movie">
+        <div class="poster">
+          <img *ngIf="movie.poster_path" class="poster" [src]="movie.backdrop_path | imagen">
+          <img *ngIf="movie.poster_path" class="poster-effect" [src]="movie.backdrop_path | imagen">
+        </div>
+        <div class="title">{{ movie.title }}</div>
+        <div class="year">{{ movie.release_date | date:'yyyy' }}</div>
+      </div>
+    </div>
+  </ion-slide>
+</ion-slides>
