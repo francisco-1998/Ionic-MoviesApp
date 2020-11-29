@@ -1,4 +1,11 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Sisco's Movies</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content [fullscreen]="true">
   <app-slide-show [peliculas]="listaPeliculasRecientes"></app-slide-show>
+  <app-slide-poster [proximasMovies]="listaPeliculasUpcoming" [titulo]="nombreSeccion"></app-slide-poster>
 </ion-content>
 
