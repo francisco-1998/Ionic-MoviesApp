@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IonInput } from '@ionic/angular';
 import { Pelicula } from '../../models/movie.model';
 
 @Component({
@@ -9,6 +10,7 @@ import { Pelicula } from '../../models/movie.model';
 export class SlideShowComponent implements OnInit {
 
   @Input() peliculas:Pelicula[]=[];
+  @Input()titulo='';
 
   slideOpts={
     dynamicBullets: true,

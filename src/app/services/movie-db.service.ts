@@ -24,7 +24,11 @@ export class MovieDBService {
   }
 
 
-  getMovieUpcoming(){
+  getMovieUpcoming() {
     return this.getQuery<RespTMDB>(`/movie/upcoming?api_key=${keyApi}&language=es-Es`)
+  }
+
+  getMoviePopular() {
+    return this.getQuery<RespTMDB>(`/movie/popular?api_key=${keyApi}&language=es-ES`)
   }
 }

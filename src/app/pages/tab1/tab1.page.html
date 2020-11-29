@@ -5,7 +5,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <app-slide-show [peliculas]="listaPeliculasRecientes"></app-slide-show>
-  <app-slide-poster [proximasMovies]="listaPeliculasUpcoming" [titulo]="nombreSeccion"></app-slide-poster>
+  <app-slide-show [peliculas]="listaPeliculasRecientes" [titulo]="nombreSeccion1"></app-slide-show>
+  <app-slide-poster [proximasMovies]="listaPeliculasUpcoming" [titulo]="nombreSeccion2"></app-slide-poster>
+  <app-slide-poster [proximasMovies]="listaPeliculasPopulares" [titulo]="nombreSeccion3"></app-slide-poster>
 </ion-content>
 
