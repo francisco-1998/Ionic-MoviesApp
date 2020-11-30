@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IonInput } from '@ionic/angular';
+import { IonInput, ModalController } from '@ionic/angular';
 import { Pelicula } from '../../models/movie.model';
+import { DetalleComponent } from '../detalle/detalle.component';
 
 @Component({
   selector: 'app-slide-show',
@@ -19,8 +20,19 @@ export class SlideShowComponent implements OnInit {
     loop: true,
   }
   
-  constructor() { }
+  constructor(private modalCtrl:ModalController) { }
 
   ngOnInit() {}
+
+  async presentModal(id:string) {
+    const modal = await this.modalCtrl.create({
+      component: DetalleComponent,
+      cssClass: 'my-custom-class',
+      componentProps: {
+        id:id
+      }
+    });
+    return await modal.present();
+  }
 
 }

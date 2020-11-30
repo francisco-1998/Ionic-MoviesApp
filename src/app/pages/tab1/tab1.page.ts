@@ -51,7 +51,6 @@ export class Tab1Page implements OnInit {
 
     this.moviedbservice.getMovieCategories().subscribe(data => {
       this.listaCategorias = this.asignarColores(data.genres.length, data.genres);
-      console.log(this.listaCategorias);
     })
   }
 
@@ -74,4 +73,9 @@ export class Tab1Page implements OnInit {
     })
   }
 
+  verPerfil(){
+
+  }
+
 }
+

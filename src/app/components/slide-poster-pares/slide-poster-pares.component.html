@@ -4,10 +4,9 @@
     <ion-row>
       <ion-col size="12">
         <div class="movies-flex" *ngFor="let movie of pares">
-          <div class="movie">
+          <div class="movie" (click)="presentModal(movie.id)">
             <div class="poster">
               <img *ngIf="movie.poster_path" class="poster" [src]="movie.poster_path | imagen">
-              <!-- <img *ngIf="movie.poster_path" class="poster-effect" [src]="movie.backdrop_path | imagen"> -->
             </div>
           </div>
         </div>

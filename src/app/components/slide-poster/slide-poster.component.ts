@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Pelicula } from '../../models/movie.model';
+import { ModalController } from '@ionic/angular';
+import { DetalleComponent } from '../detalle/detalle.component';
 
 @Component({
   selector: 'app-slide-poster',
@@ -18,8 +20,19 @@ export class SlidePosterComponent implements OnInit {
     autoplay: true
   }
   
-  constructor() { }
+  constructor(private modalCtrl:ModalController) { }
 
   ngOnInit() {}
+
+  async presentModal(id:string) {
+    const modal = await this.modalCtrl.create({
+      component: DetalleComponent,
+      cssClass: 'my-custom-class',
+      componentProps: {
+        id:id
+      }
+    });
+    return await modal.present();
+  }
 
 }

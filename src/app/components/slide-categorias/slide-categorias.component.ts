@@ -20,7 +20,6 @@ export class SlideCategoriasComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.categorias);
   }
 
 

@@ -6,6 +6,7 @@ import { SlideShowComponent } from './slide-show/slide-show.component';
 import { SlidePosterComponent } from './slide-poster/slide-poster.component';
 import { SlidePosterParesComponent } from './slide-poster-pares/slide-poster-pares.component';
 import { SlideCategoriasComponent } from './slide-categorias/slide-categorias.component';
+import { DetalleComponent } from './detalle/detalle.component';
 
 
 
@@ -14,7 +15,8 @@ import { SlideCategoriasComponent } from './slide-categorias/slide-categorias.co
     SlideShowComponent,
     SlidePosterComponent,
     SlidePosterParesComponent,
-    SlideCategoriasComponent
+    SlideCategoriasComponent,
+    DetalleComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { SlideCategoriasComponent } from './slide-categorias/slide-categorias.co
     SlideShowComponent,
     SlidePosterComponent,
     SlidePosterParesComponent,
-    SlideCategoriasComponent
+    SlideCategoriasComponent,
+    DetalleComponent
   ]
 })
 export class ComponentsModule { }

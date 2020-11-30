@@ -1,7 +1,7 @@
 <h1>{{ titulo }}</h1>
 <ion-slides [options]="slideOpts">
   <ion-slide *ngFor="let movie of proximasMovies">
-    <div class="movies-flex" *ngIf="proximasMovies">
+    <div class="movies-flex" *ngIf="proximasMovies" (click)="presentModal(movie.id)">
       <div class="movie">
         <div class="poster">
           <img *ngIf="movie.poster_path" class="poster" [src]="movie.poster_path | imagen">
