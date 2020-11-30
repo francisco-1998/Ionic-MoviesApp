@@ -16,6 +16,6 @@
   <app-slide-show [peliculas]="listaPeliculasRecientes" [titulo]=""></app-slide-show>
   <app-slide-categorias [categorias]="listaCategorias" [colores]="listaColores"></app-slide-categorias>
   <app-slide-poster [proximasMovies]="listaPeliculasUpcoming" [titulo]="nombreSeccion2"></app-slide-poster>
-  <app-slide-poster-pares [peliculas]="listaPeliculasPopulares" [titulo]="nombreSeccion3"></app-slide-poster-pares>
+  <app-slide-poster-pares [peliculas]="listaPeliculasPopulares" [titulo]="nombreSeccion3" (cargarMas)="cargarMas()"></app-slide-poster-pares>
 </ion-content>
 

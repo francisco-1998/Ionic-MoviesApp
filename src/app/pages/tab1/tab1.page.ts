@@ -56,9 +56,7 @@ export class Tab1Page implements OnInit{
       this.listaPeliculasUpcoming = data.results;
     })
 
-    this.moviedbservice.getMoviePopular().subscribe(data=>{
-      this.listaPeliculasPopulares = data.results;
-    })
+    this.cargarPopulares();
 
     this.moviedbservice.getMovieCategories().subscribe(data=>{
       this.listaCategorias = this.asignarColores(data.genres.length,data.genres);
@@ -72,6 +70,17 @@ export class Tab1Page implements OnInit{
       data[i].color = this.listaColores[i];
     }
     return data;
+  }
+
+  cargarMas(){
+    this.cargarPopulares();
+  }
+
+  cargarPopulares(){
+    this.moviedbservice.getMoviePopular().subscribe(data=>{
+      let arrTmp = [...this.listaPeliculasPopulares, ...data.results]
+      this.listaPeliculasPopulares = arrTmp;
+    })
   }
 
 }

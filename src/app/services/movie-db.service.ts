@@ -11,6 +11,8 @@ const keyApi = environment.apiKey;
 })
 export class MovieDBService {
 
+  pages:number = 0;
+
   constructor(private http: HttpClient) { }
 
   private getQuery<T>(query: string) {
@@ -28,7 +30,8 @@ export class MovieDBService {
   }
 
   getMoviePopular() {
-    return this.getQuery<RespTMDB>(`/movie/popular?api_key=${keyApi}&language=es-ES`)
+    this.pages++;
+    return this.getQuery<RespTMDB>(`/movie/popular?api_key=${keyApi}&language=es-ES&page=${this.pages}`)
   }
 
   getMovieCategories() {
