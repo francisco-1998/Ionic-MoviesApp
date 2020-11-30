@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SlideCategoriasComponent implements OnInit {
 
   @Input() categorias: string[] = [];
+  @Input() colores: string[] = [];
   titulo : string = "Categorías principales"
 
 
@@ -18,6 +19,9 @@ export class SlideCategoriasComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.categorias);
+  }
+
 
 }

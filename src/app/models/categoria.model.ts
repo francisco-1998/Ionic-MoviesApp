@@ -5,4 +5,5 @@ interface RespCategoria {
 interface Categoria {
   id: number;
   name: string;
+  color: string;
 }

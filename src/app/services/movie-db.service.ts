@@ -15,7 +15,6 @@ export class MovieDBService {
 
   private getQuery<T>(query: string) {
     query = baseUrlTMDB + query;
-    console.log(query);
     return this.http.get<T>(query);
   }
 

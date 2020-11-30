@@ -14,7 +14,7 @@ export class SlideShowComponent implements OnInit {
 
   slideOpts={
     dynamicBullets: true,
-    slidesPerView:1.1,
+    slidesPerView:1,
     autoplay: true,
     loop: true,
   }

@@ -1,10 +1,11 @@
 <h1>{{ titulo }}</h1>
+
 <ion-slides [options]="slideOpts">
-  <ion-slide *ngFor="let pares of categorias | pares">
+  <ion-slide *ngFor="let pares of categorias | pares; let i=index">
     <ion-grid fixed style="padding-bottom: 15px;">
       <ion-row>
-        <ion-col size="12" *ngFor="let item of pares">
-          <ion-button expand="block" color="primary" size="large" mode="ios">{{ item.name }}</ion-button>
+        <ion-col size="12" *ngFor="let cat of pares, let y=index">
+          <ion-button expand="block" size="large" mode="ios" style="--background:{{ cat.color }};--background-hover:{{ cat.color }}; --background-activated:{{ cat.color }}">{{ cat.name }}</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
