@@ -1,3 +1,84 @@
-<p>
-  detalle works!
-</p>
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ movie?.title }}</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="ion-padding">
+
+  <div class="backdrop" *ngIf="movie">
+    <img *ngIf="movie.backdrop_path" [src]="'https://image.tmdb.org/t/p/original' + movie.backdrop_path">
+  </div>
+  <div class="backdrop-separator1"></div>
+  <div class="backdrop-separator2"></div>
+
+  <div class="poster" *ngIf="movie">
+    <img *ngIf="movie.poster_path" class="poster" [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path">
+    <img *ngIf="movie.poster_path" class="poster-effect" [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path">
+  </div>
+
+  <div class="movie-data" *ngIf="movie">
+    <div class="title">{{ movie.title }}</div>
+    <div class="year">{{ movie.release_date | date:'yyyy' }}</div>
+    <div class="vote">
+      <div class="text">
+        {{ movie.vote_average }}/10
+      </div>
+      <div class="stars">
+        <ion-icon [name]="movie.vote_average >= 2 ? 'star' : movie.vote_average >= 1 ? 'star-half' : 'star-outline'"></ion-icon>
+        <ion-icon [name]="movie.vote_average >= 4 ? 'star' : movie.vote_average >= 3 ? 'star-half' : 'star-outline'"></ion-icon>
+        <ion-icon [name]="movie.vote_average >= 6 ? 'star' : movie.vote_average >= 5 ? 'star-half' : 'star-outline'"></ion-icon>
+        <ion-icon [name]="movie.vote_average >= 8 ? 'star' : movie.vote_average >= 7 ? 'star-half' : 'star-outline'"></ion-icon>
+        <ion-icon [name]="movie.vote_average >= 10 ? 'star' : movie.vote_average >= 9 ? 'star-half' : 'star-outline'"></ion-icon>
+      </div>
+      <div class="count">{{ movie.vote_count }} votos</div>
+    </div>
+
+    <div class="overview">
+      {{ movie.overview | slice:0:ocultar }}
+      <ion-label color="tertiary" (click)="ocultar = 5000" *ngIf="ocultar !==5000">Leer más!</ion-label>
+      <ion-label color="tertiary" (click)="ocultar = 160" *ngIf="ocultar === 5000">Ocultar</ion-label>
+    </div>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-chip color="tertiary" *ngFor="let genero of movie.genres">
+          <ion-label>{{ genero.name }}</ion-label>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+    
+    <h1>Actores</h1>
+    <ion-slides [options]="slideOptActores">
+      <ion-slide *ngFor="let actor of actores">
+        <ion-card class="card-actor">
+          <img *ngIf="actor.profile_path" [src]="actor.profile_path | imagen">
+          <img *ngIf="!actor.profile_path" src="/assets/no-avatar.jpg">
+          <ion-label>{{ actor.name }}</ion-label>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+
+</ion-content>
+
+<ion-footer>
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button (click)="regresar()">
+      <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      Regresar
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="end">
+    <ion-button (click)="favorito()">
+      <ion-icon slot="start" name="star-outline"></ion-icon>
+      Favorito
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+</ion-footer>
