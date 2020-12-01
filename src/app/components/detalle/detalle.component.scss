@@ -236,13 +236,13 @@ h1 {
 }
 
 
-.card-actor {
-  height: 230px;
-  // width: 100%;
-}
 
-.actor-name {
-  position: relative;
-  // top     : 20px;
-  color: #000;
+
+.nombre-actor {
+  width: 100%;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  font-size: 12px;
+  line-height: 12px;
+  padding: 5px 0 5px 0;
 }

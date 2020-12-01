@@ -54,10 +54,10 @@
     <h1>Actores</h1>
     <ion-slides [options]="slideOptActores">
       <ion-slide *ngFor="let actor of actores">
-        <ion-card class="card-actor">
+        <ion-card>
           <img *ngIf="actor.profile_path" [src]="actor.profile_path | imagen">
           <img *ngIf="!actor.profile_path" src="/assets/no-avatar.jpg">
-          <ion-label>{{ actor.name }}</ion-label>
+          <div class="nombre-actor">{{ actor.name }}</div>
         </ion-card>
       </ion-slide>
     </ion-slides>
