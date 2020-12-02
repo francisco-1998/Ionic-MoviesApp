@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RespTMDB } from '../models/movie.model';
+import { RespTMDB, Pelicula } from '../models/movie.model';
 import { environment } from '../../environments/environment';
 import { PeliculaDetalle, RespuestaCredits } from '../models/detalle.model';
 
@@ -45,5 +45,9 @@ export class MovieDBService {
 
   getCreditsMovie(id){
     return this.getQuery<RespuestaCredits>(`/movie/${id}/credits?api_key=${keyApi}&language=es-Es`)
+  }
+
+  getMovieFind(query:string){
+    return this.getQuery<RespTMDB>(`/search/movie?api_key=${keyApi}&language=es-Es&query=${query}&page=1&include_adult=true`)
   }
 }

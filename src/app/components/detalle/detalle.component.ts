@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MovieDBService } from '../../services/movie-db.service';
 import { PeliculaDetalle, Cast } from '../../models/detalle.model';
 import { ModalController } from '@ionic/angular';
+import { DataSqlLiteService } from '../../services/data-sql-lite.service';
 
 @Component({
   selector: 'app-detalle',
@@ -10,11 +11,12 @@ import { ModalController } from '@ionic/angular';
 })
 export class DetalleComponent implements OnInit {
 
-  @Input() id:string;
+  @Input() id;
 
   ocultar = 160;
   movie : PeliculaDetalle={};
   actores: Cast[]=[];
+  estrella = 'star-outline'
 
   slideOptActores={
     slidesPerView: 2.5,
@@ -23,9 +25,18 @@ export class DetalleComponent implements OnInit {
     loop:true,
     autoplay: true
   }
-  constructor(private movieService:MovieDBService, private modalCtrl:ModalController) { }
+  constructor(private movieService:MovieDBService, 
+              private modalCtrl:ModalController,
+              private dataSqlLiteService:DataSqlLiteService) { }
 
   ngOnInit() {
+    this.dataSqlLiteService.existePelicula(this.id).then(existe=>{
+      if(existe){
+        this.estrella = 'star'
+      }else{
+        this.estrella='star-outline'
+      }
+    })
     this.cargarData();
   }
 
@@ -40,6 +51,11 @@ export class DetalleComponent implements OnInit {
 
   regresar(){
     this.modalCtrl.dismiss();
+  }
+
+  favorito(){
+    const esFav = this.dataSqlLiteService.guardarFavorito(this.movie);
+    this.estrella = esFav ? 'star' : 'star-outline';
   }
 
 }

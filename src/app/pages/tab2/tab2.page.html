@@ -14,7 +14,7 @@
 
 <ion-content>
   
-  <ion-grid>
+  <ion-grid *ngIf="buscando">
     <ion-row>
       <ion-col class="ion-text-center">
         <ion-spinner name="crescent"></ion-spinner>
@@ -22,12 +22,29 @@
     </ion-row>
   </ion-grid>
 
-    <ion-list>
+    <ion-list *ngIf="peliculas.length === 0">
       <ion-list-header>
         <ion-label>Búsquedas populares</ion-label>
       </ion-list-header>
       <ion-item *ngFor="let item of ideas">
-        <ion-label color="tertiary" (click)="enviar(item)">{{ item }}</ion-label>
+        <ion-label color="tertiary" (click)="buscar(item)">{{ item }}</ion-label>
       </ion-item>
     </ion-list>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let movie of peliculas">
+          <div class="movies-flex" (click)="presentModal(movie.id)">
+            <div class="movie">
+              <div class="poster">
+                <img *ngIf="movie.poster_path" class="poster" [src]="movie.poster_path | imagen">
+                <img *ngIf="movie.poster_path" class="poster-effect" [src]="movie.poster_path | imagen">
+              </div>
+              <div class="title">{{ movie.title }}</div>
+              <div class="year">{{ movie.release_date | date:'yyyy' }}</div>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-content>
