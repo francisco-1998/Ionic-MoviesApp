@@ -16,7 +16,6 @@ export class SlidePosterComponent implements OnInit {
   slideOpts={
     dynamicBullets: true,
     slidesPerView:2,
-    loop: true,
   }
   
   constructor(private modalCtrl:ModalController) { }
